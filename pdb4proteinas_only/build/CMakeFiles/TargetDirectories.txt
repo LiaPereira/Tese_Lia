@@ -1,0 +1,7 @@
+/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles/install/strip.dir
+/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles/install/local.dir
+/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles/install.dir
+/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles/list_install_components.dir
+/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles/rebuild_cache.dir
+/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles/edit_cache.dir
+/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles/pdb4dna.dir
