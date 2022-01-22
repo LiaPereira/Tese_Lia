@@ -48,6 +48,10 @@
 
 class G4Run;
 
+//espetro
+class G4DataVector;
+//fim espetro
+
 class RunAction : public G4UserRunAction
 {
 public:
@@ -56,6 +60,20 @@ public:
 
   virtual void BeginOfRunAction(const G4Run*);
   virtual void EndOfRunAction(const G4Run*);
+
+  //espetro
+  G4DataVector* GetEnergies() const;
+  G4DataVector* GetData() const;
+  G4double GetDataSum() const;
+  //fim espetro
+
+private:
+
+  //espetro
+  G4DataVector* energies;
+  G4DataVector* data;
+  void ReadData(G4double,G4String);
+  //fim espetro
 
 };
 

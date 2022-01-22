@@ -52,6 +52,10 @@
 class G4ParticleGun;
 class G4Event;
 
+//espetro
+class RunAction;
+//fim espetro
+
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
 public:
@@ -68,6 +72,13 @@ const G4ParticleGun * GetParticleGun() const {return fpParticleGun;}
 private:
   G4ParticleGun* fpParticleGun;
   //G4GeneralParticleSource* fpParticleGun;
+
+  //espetro
+  G4String spectrum;
+
+  const RunAction* runAction;
+
+//fim espetro
 };
 
 #endif

@@ -52,10 +52,16 @@
 
 #include "Randomize.hh"
 
+//espetro
+#include "RunAction.hh"
+#include "G4RunManager.hh"
+#include "Randomize.hh"
+//fim espetro
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
-: G4VUserPrimaryGeneratorAction()
+: G4VUserPrimaryGeneratorAction(),spectrum("off")
 {
   G4int n_particle = 1;
   fpParticleGun  = new G4ParticleGun(n_particle);
@@ -153,6 +159,35 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   } 
 
   // aqui
+
+  //espetro
+   if (spectrum =="on")
+    {
+      G4cout<<"hey"<<G4endl;
+      // isto em baixo é uma sequencial runaction (????) - G4RunManager
+      // Há a opção de MT master runaction com o G4MTRunManager
+    runAction = static_cast<const RunAction*>(G4RunManager::GetRunManager()->GetUserRunAction()); 
+
+	  G4DataVector* energies =  runAction->GetEnergies();
+	  G4DataVector* data =  runAction->GetData();
+    //G4cout<<"Energias " <<*energies<<G4endl;
+	 
+	  G4double sum = runAction->GetDataSum();
+    //G4cout<<"A soma é: " <<sum<<G4endl;
+	  G4double partSum = 0;
+	  G4int j = 0;
+	  G4double random= sum*G4UniformRand();
+    //G4cout<<"Random: " <<random<<G4endl;
+	  while (partSum<random)
+	    {
+	      partSum += (*data)[j];
+	      j++;    
+        
+	    }
+	 
+	  fpParticleGun->SetParticleEnergy((*energies)[j-1]); //Eu acrescentei o -1 !!!!!!!!!!!!!!
+  //fim espetro
+    }
 
   fpParticleGun->GeneratePrimaryVertex(anEvent);
   G4cout<<"Energia "<<fpParticleGun->GetParticleEnergy()<<G4endl;

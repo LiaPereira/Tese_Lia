@@ -48,6 +48,11 @@
 #include "PrimaryGeneratorAction.hh"
 #include "G4GeneralParticleSource.hh"
 
+//espetro
+#include "G4DataVector.hh"
+#include "G4SystemOfUnits.hh"
+//fim espetro
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -60,7 +65,7 @@ RunAction::RunAction() : G4UserRunAction()
   //
   analysisManager->CreateH1("1",
                             "Energy deposit in the target (eV)",
-                            20000,0.,20.);
+                            20000.,0.,20.);
   analysisManager->CreateH1("2",
                             "Number of SSB",
                             10,0.,10.);
@@ -110,6 +115,14 @@ void RunAction::BeginOfRunAction(const G4Run*)
 {
   RunInitManager::Instance()->Initialize();
 
+  //espetro
+  energies = new G4DataVector;
+  data = new G4DataVector;
+  
+  G4cout<<"----- Vai chamar a função ReadData -----"<<G4endl;
+  ReadData(keV,"M_flare");
+  //fim espetro
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -122,3 +135,109 @@ void RunAction::EndOfRunAction(const G4Run*)
   analysisManager->Write();
 }
 
+//espetro
+void RunAction::ReadData(G4double unitE, G4String fileName)
+{
+  std::ostringstream ost;
+  
+  ost << fileName <<".dat";
+  
+  G4String name = ost.str();
+  char* path;
+
+  G4cout<<"O nome do ficheiro é "<< name<<G4endl;
+  
+  if (!(std::getenv("XRAYDATA"))) { 
+    // Ele entra aqui
+    path = std::getenv("PWD");    
+  }
+  
+  else {    
+    path = std::getenv("XRAYDATA");
+  }
+  
+  
+  G4String pathString(path);
+  name = pathString + "/" + name;
+  G4cout<<"O path do ficheiro é "<< name<<G4endl;
+  
+  std::ifstream file(name);
+  std::filebuf* lsdp = file.rdbuf();
+
+  
+  if (! (lsdp->is_open()) )
+    {
+      // Ele nao entra aqui (so deve entrar se nao encontrar o ficheiro)
+      G4ExceptionDescription execp;
+      execp <<  "XrayFluoRunAction - data file: " + name + " not found";
+      G4Exception("XrayFluoRunAction::ReadData()","example-xray_fluorescence04",
+	  FatalException, execp);
+    }
+  G4double a = 0;
+  G4int k = 1;
+  G4cout<<"Vamos percorrer as linhas e as colunas do ficheiro:" <<G4endl;
+  // O "do" só acaba no while lá em baixo
+  do
+    {
+      file >> a;
+      //G4cout<<a<<G4endl;
+      G4int nColumns = 2;
+      // The file is organized into two columns:
+      // 1st column is the energy
+      // 2nd column is the corresponding value
+      // The file terminates with the pattern: -1   -1
+      //                                       -2   -2
+      if (a == -1 || a == -2)
+	{
+	  
+	}
+      else
+	{
+	  if (k%nColumns != 0)
+	    {	
+        // Entra neste if quando o "a" corresponde a uma energia (1a coluna)
+        // As energias ficam guardadas
+	      G4double e = a * unitE;
+	      energies->push_back(e);
+	      
+	      k++;
+	      
+	    }
+	  else if (k%nColumns == 0)
+	    {
+        // Entra neste if quando o "a" corresponde a uma "fluencia/quantidade" (2a coluna)
+        // Os dados correspondentes a cada energia ficam guardados
+	      G4double value = a;
+	      data->push_back(value);
+	      
+	      k = 1;
+	    }
+	}
+      
+    } while (a != -2); // end of file
+  
+  file.close();
+  G4cout << " done" << G4endl;
+}
+
+G4DataVector* RunAction::GetEnergies() const
+{
+  return energies;
+}
+
+G4DataVector* RunAction::GetData() const
+{
+  return data;
+}
+
+G4double RunAction::GetDataSum() const
+{
+ 
+  G4double sum = 0;
+  for (size_t i = 0; i < data->size(); i++)
+    {
+      sum+=(*data)[i];
+    }
+  return sum;
+}
+//fim espetro
