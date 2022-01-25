@@ -1,3 +1,0 @@
-/home/ldcp/geant4-10.7.2/examples/pdb4proteinas_only/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
-/home/ldcp/geant4-10.7.2/examples/pdb4proteinas_only/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir
-/home/ldcp/geant4-10.7.2/examples/pdb4proteinas_only/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_9cc7d.dir
