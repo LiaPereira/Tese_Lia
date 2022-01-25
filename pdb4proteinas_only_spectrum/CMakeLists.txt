@@ -52,6 +52,7 @@ set(EXAMPLEpdb4dna_SCRIPTS
   analysis.C
   1ZBB.pdb
   1iyt.pdb
+  M_flare.dat
   )
 
 foreach(_script ${EXAMPLEpdb4dna_SCRIPTS})
