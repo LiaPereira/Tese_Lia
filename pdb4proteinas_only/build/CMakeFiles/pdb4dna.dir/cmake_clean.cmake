@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pdb4dna.dir/src/PDBresidue.cc.o"
   "CMakeFiles/pdb4dna.dir/src/PhysicsList.cc.o"
   "CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorAction.cc.o"
+  "CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.o"
   "CMakeFiles/pdb4dna.dir/src/RunAction.cc.o"
   "CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.o"
   "CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.o"

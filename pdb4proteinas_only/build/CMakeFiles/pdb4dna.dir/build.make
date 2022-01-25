@@ -226,9 +226,22 @@ CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorAction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/src/PrimaryGeneratorAction.cc -o CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorAction.cc.s
 
+CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.o: CMakeFiles/pdb4dna.dir/flags.make
+CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.o: ../src/PrimaryGeneratorMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.o -c /home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/src/PrimaryGeneratorMessenger.cc
+
+CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/src/PrimaryGeneratorMessenger.cc > CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.i
+
+CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/src/PrimaryGeneratorMessenger.cc -o CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.s
+
 CMakeFiles/pdb4dna.dir/src/RunAction.cc.o: CMakeFiles/pdb4dna.dir/flags.make
 CMakeFiles/pdb4dna.dir/src/RunAction.cc.o: ../src/RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/pdb4dna.dir/src/RunAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/pdb4dna.dir/src/RunAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pdb4dna.dir/src/RunAction.cc.o -c /home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/src/RunAction.cc
 
 CMakeFiles/pdb4dna.dir/src/RunAction.cc.i: cmake_force
@@ -241,7 +254,7 @@ CMakeFiles/pdb4dna.dir/src/RunAction.cc.s: cmake_force
 
 CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.o: CMakeFiles/pdb4dna.dir/flags.make
 CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.o: ../src/RunInitObserver.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.o -c /home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/src/RunInitObserver.cc
 
 CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.i: cmake_force
@@ -254,7 +267,7 @@ CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.s: cmake_force
 
 CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.o: CMakeFiles/pdb4dna.dir/flags.make
 CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.o: ../src/SteppingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.o -c /home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/src/SteppingAction.cc
 
 CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.i: cmake_force
@@ -280,6 +293,7 @@ pdb4dna_OBJECTS = \
 "CMakeFiles/pdb4dna.dir/src/PDBresidue.cc.o" \
 "CMakeFiles/pdb4dna.dir/src/PhysicsList.cc.o" \
 "CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorAction.cc.o" \
+"CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.o" \
 "CMakeFiles/pdb4dna.dir/src/RunAction.cc.o" \
 "CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.o" \
 "CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.o"
@@ -300,6 +314,7 @@ pdb4dna: CMakeFiles/pdb4dna.dir/src/PDBmolecule.cc.o
 pdb4dna: CMakeFiles/pdb4dna.dir/src/PDBresidue.cc.o
 pdb4dna: CMakeFiles/pdb4dna.dir/src/PhysicsList.cc.o
 pdb4dna: CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorAction.cc.o
+pdb4dna: CMakeFiles/pdb4dna.dir/src/PrimaryGeneratorMessenger.cc.o
 pdb4dna: CMakeFiles/pdb4dna.dir/src/RunAction.cc.o
 pdb4dna: CMakeFiles/pdb4dna.dir/src/RunInitObserver.cc.o
 pdb4dna: CMakeFiles/pdb4dna.dir/src/SteppingAction.cc.o
@@ -351,7 +366,7 @@ pdb4dna: /home/ldcp/geant4-10.7.2/install/lib/libG4global.so
 pdb4dna: /home/ldcp/geant4-10.7.2/install/lib/libG4clhep.so
 pdb4dna: /home/ldcp/geant4-10.7.2/install/lib/libG4ptl.so.0.0.2
 pdb4dna: CMakeFiles/pdb4dna.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable pdb4dna"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ldcp/geant4-10.7.2/examples/Tese_Lia/pdb4proteinas_only/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable pdb4dna"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pdb4dna.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

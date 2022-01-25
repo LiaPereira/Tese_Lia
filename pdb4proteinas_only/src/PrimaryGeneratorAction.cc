@@ -56,6 +56,7 @@
 #include "RunAction.hh"
 #include "G4RunManager.hh"
 #include "Randomize.hh"
+#include "PrimaryGeneratorMessenger.hh"
 //fim espetro
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -67,7 +68,10 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
   fpParticleGun  = new G4ParticleGun(n_particle);
   //fpParticleGun  = new G4GeneralParticleSource();
 
-
+  //espetro
+  //create a messenger for this class
+  gunMessenger = new PrimaryGeneratorMessenger(this); 
+  //fim espetro
 
   // default particle kinematic
 
@@ -84,6 +88,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
 {
   delete fpParticleGun;
+  delete gunMessenger;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -163,14 +168,14 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   //espetro
    if (spectrum =="on")
     {
-      G4cout<<"hey"<<G4endl;
+      G4cout<<"ESPETRO ON"<<G4endl;
       // isto em baixo é uma sequencial runaction (????) - G4RunManager
       // Há a opção de MT master runaction com o G4MTRunManager
     runAction = static_cast<const RunAction*>(G4RunManager::GetRunManager()->GetUserRunAction()); 
 
 	  G4DataVector* energies =  runAction->GetEnergies();
 	  G4DataVector* data =  runAction->GetData();
-    //G4cout<<"Energias " <<*energies<<G4endl;
+    G4cout<<"Energias " <<*energies<<G4endl;
 	 
 	  G4double sum = runAction->GetDataSum();
     //G4cout<<"A soma é: " <<sum<<G4endl;

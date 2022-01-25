@@ -54,6 +54,7 @@ class G4Event;
 
 //espetro
 class RunAction;
+class PrimaryGeneratorMessenger;
 //fim espetro
 
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
@@ -68,6 +69,10 @@ public:
 const G4ParticleGun * GetParticleGun() const {return fpParticleGun;}
 //const G4GeneralParticleSource * GetParticleGun() const {return fpParticleGun;}
 
+  //espetro
+  void SetSpectrum (G4String val) { spectrum= val  ;}
+  //fim espetro
+
 
 private:
   G4ParticleGun* fpParticleGun;
@@ -76,9 +81,12 @@ private:
   //espetro
   G4String spectrum;
 
+  //messenger of this class
+  PrimaryGeneratorMessenger* gunMessenger; 
+
   const RunAction* runAction;
 
-//fim espetro
+  //fim espetro
 };
 
 #endif
