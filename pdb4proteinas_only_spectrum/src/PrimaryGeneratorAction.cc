@@ -75,6 +75,8 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
   //  //fpParticleGun->SetParticleEnergy(0.1*MeV);
   //  fpParticleGun->SetParticlePosition(G4ThreeVector(0.*nm,0.*nm,0.*nm));
 
+  // ELE ENTRA AQUI SÓ UMA VEZ (NO INICIO DO RUN) E TEM A ENERGIA, POSIÇÃO, ETC COMO DEFAULT
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
