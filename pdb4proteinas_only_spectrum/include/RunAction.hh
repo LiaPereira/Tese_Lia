@@ -67,6 +67,8 @@ public:
   G4double GetDataSum() const;
   //fim espetro
 
+  G4int Run;
+
   G4int i;
 
 private:
@@ -76,6 +78,8 @@ private:
   G4DataVector* data;
   void ReadData(G4double,G4String);
   //fim espetro
+
+  
 
 };
 

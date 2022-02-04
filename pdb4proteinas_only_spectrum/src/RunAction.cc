@@ -77,12 +77,14 @@ void RunAction::BeginOfRunAction(const G4Run*)
   i++;
   RunInitManager::Instance()->Initialize();
 
+  Run ++;
+
   //espetro
   energies = new G4DataVector;
   data = new G4DataVector;
   
   G4cout<<"----- Vai chamar a função ReadData -----"<<G4endl;
-  //ReadData(keV,"M_flare");
+  ReadData(keV,"M_flare");
   //fim espetro
 
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
@@ -107,7 +109,7 @@ void RunAction::BeginOfRunAction(const G4Run*)
 
   const PrimaryGeneratorAction *primaryGeneratorAction = static_cast<const PrimaryGeneratorAction*>(G4RunManager::GetRunManager()->GetUserPrimaryGeneratorAction());
   
-  const G4GeneralParticleSource *fpParticleGun = primaryGeneratorAction->GetParticleGun();
+  const G4ParticleGun*fpParticleGun = primaryGeneratorAction->GetParticleGun();
   G4String Energia = G4UIcommand::ConvertToString(fpParticleGun->GetParticleEnergy()/CLHEP::keV) + "keV" ;
 
   //G4cout<<"Energia do feixe "<<Energia<<G4endl; //está mal
@@ -190,7 +192,7 @@ void RunAction::ReadData(G4double unitE, G4String fileName)
       // 2nd column is the corresponding value
       // The file terminates with the pattern: -1   -1
       //                                       -2   -2
-      if (a == 200 || a == 200)
+      if (a == -1 || a == -2)
 	{
 	  
 	}
@@ -217,7 +219,7 @@ void RunAction::ReadData(G4double unitE, G4String fileName)
 	    }
 	}
       
-    } while (a != 20); // end of file
+    } while (a != -2); // end of file
   
   file.close();
   G4cout << " done" << G4endl;

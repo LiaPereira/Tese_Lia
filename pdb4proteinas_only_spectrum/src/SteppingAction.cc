@@ -47,6 +47,10 @@
 #include "G4SteppingManager.hh"
 #include "G4SystemOfUnits.hh"
 
+#include <iostream>
+#include <fstream> 
+#include <string>
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 SteppingAction::SteppingAction()
@@ -112,13 +116,15 @@ G4bool SteppingAction::CheckAndProcessHit(G4double x,G4double y, G4double z,
 {
 int numMolec=0;
 int numResi=0;
+std::vector<std::string> Elem;
+std::vector<int> numElem;
 unsigned short int hit = (fpDetector->GetPDBlib()).ComputeMatchEdepProtein(
      fpDetector->GetMoleculeList(),
      x*10., y*10., z*10.,// x10 => angstrom<->nm
-     numMolec, numResi);
+     numMolec, numResi,Elem,numElem);
  if (hit==1)
     {
-      fpEventAction->AddEdepToResidue(numMolec,numResi,edepStep);
+      fpEventAction->AddEdepToResidue(numMolec,numResi,edepStep,Elem,numElem);
       return true;
     }
      

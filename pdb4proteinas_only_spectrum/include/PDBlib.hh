@@ -82,7 +82,7 @@ public:
   unsigned short int ComputeMatchEdepProtein(Molecule *,
      double x, double y,double z,
      int &numMolec,
-     int &numResi);
+     int &numResi,std::vector<std::string> &Elem, std::vector<int> &numElem);
 // -------------------------------------------------------------------------
 
 private:

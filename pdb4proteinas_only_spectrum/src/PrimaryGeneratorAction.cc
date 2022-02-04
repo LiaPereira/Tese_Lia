@@ -64,18 +64,18 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 : G4VUserPrimaryGeneratorAction(),spectrum("off")
 {
   G4int n_particle = 1;
-  //fpParticleGun  = new G4ParticleGun(n_particle);
-  fpParticleGun  = new G4GeneralParticleSource();
+  fpParticleGun  = new G4ParticleGun(n_particle);
+  //fpParticleGun  = new G4GeneralParticleSource();
   // default particle kinematic
 
-  //  G4ParticleDefinition* particle
-  //  = G4ParticleTable::GetParticleTable()->FindParticle("e-");
-  //  fpParticleGun->SetParticleDefinition(particle);
-  //  fpParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-  //  //fpParticleGun->SetParticleEnergy(0.1*MeV);
-  //  fpParticleGun->SetParticlePosition(G4ThreeVector(0.*nm,0.*nm,0.*nm));
+    G4ParticleDefinition* particle
+    = G4ParticleTable::GetParticleTable()->FindParticle("e-");
+    fpParticleGun->SetParticleDefinition(particle);
+    fpParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+    fpParticleGun->SetParticleEnergy(0.1*MeV);
+    fpParticleGun->SetParticlePosition(G4ThreeVector(0.*nm,0.*nm,0.*nm));
 
-  // ELE ENTRA AQUI SÓ UMA VEZ (NO INICIO DO RUN) E TEM A ENERGIA, POSIÇÃO, ETC COMO DEFAULT
+
 
 }
 
@@ -104,20 +104,22 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     //G4cout<<"Energias " <<*energies<<G4endl;
 	 
 	  G4double sum = runAction->GetDataSum();
-    //G4cout<<"A soma é: " <<sum<<G4endl;
+    G4cout<<"A soma é: " <<sum<<G4endl;
 	  G4double partSum = 0;
 	  G4int j = 0;
 	  G4double random= sum*G4UniformRand();
-    //G4cout<<"Random: " <<random<<G4endl;
+    G4cout<<"Random: " <<random<<G4endl;
 	  while (partSum<random)
 	    {
 	      partSum += (*data)[j];
-	      j++;    
+	      j++;   
+        G4cout<<"Ir somando "<<partSum<<G4endl; 
         
 	    }
-    G4cout<<"energia "<<(*energies)[j-1]<<G4endl;
+    G4cout<<"É a energia #: "<<j<<G4endl; 
+    //G4cout<<"energia "<<(*energies)[j-1]<<G4endl;
 	 
-	  //fpParticleGun->SetParticleEnergy((*energies)[j-1]); //Eu acrescentei o -1 !!!!!!!!!!!!!!
+	  fpParticleGun->SetParticleEnergy((*energies)[j-1]); 
   //fim espetro
 	
     }

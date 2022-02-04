@@ -576,7 +576,7 @@ unsigned short int PDBlib::ComputeMatchEdepProtein(Molecule *moleculeListTemp,
                                            double y,
                                            double z,
                                            int &numMolec,
-                                           int &numResi)
+                                           int &numResi, std::vector<std::string> &Elem, std::vector<int> &numElem)
                                               
 {
  unsigned short int matchFound = 0;
@@ -585,7 +585,8 @@ unsigned short int PDBlib::ComputeMatchEdepProtein(Molecule *moleculeListTemp,
 
 short int MolecNum = 0; //Molecule number
 int ResiNum = 1; //Residue (nucleotide nao, acho que é amino-ácido) number
-
+string elem;
+int num_elem = 0;
 
  double smallestDist; //smallest dist Atom <-> edep coordinates 
  double distEdepAtom;
@@ -651,6 +652,8 @@ int ResiNum = 1; //Residue (nucleotide nao, acho que é amino-ácido) number
             ResiNum = residueListTemp->fResSeq;
              G4cout<<"Detetado hit no resíduo "<<ResiNum<<G4endl;
              G4cout<<"No átomo "<<AtomTemp->GetElementName()<<" cujo numero é " <<AtomTemp->fNumInRes<<G4endl;
+            elem = AtomTemp->GetElementName();
+            num_elem = AtomTemp->fNumInRes;
             smallestDist = distEdepAtom;
 
             int j_max_value = INT_MAX;
@@ -658,6 +661,10 @@ int ResiNum = 1; //Residue (nucleotide nao, acho que é amino-ácido) number
             if(j_save == j_max_value) j_save = j;
             //G4cout<<"j_save "<<j_save<<G4endl;
             matchFound = 1;
+
+            numElem.push_back(num_elem);
+            Elem.push_back(elem); 
+            G4cout<<"adicionar elemento "<<elem<<G4endl;
 
           }
           AtomTemp = AtomTemp->GetNext();

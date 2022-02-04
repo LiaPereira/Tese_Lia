@@ -64,13 +64,13 @@ public:
 public:
   virtual void GeneratePrimaries(G4Event*);
 // ---------- EU ------- para ir buscar a particlegun e ir buscar a energia para por no output-----
-//const G4ParticleGun * GetParticleGun() const {return fpParticleGun;}
-const G4GeneralParticleSource * GetParticleGun() const {return fpParticleGun;}
+const G4ParticleGun * GetParticleGun() const {return fpParticleGun;}
+//const G4GeneralParticleSource * GetParticleGun() const {return fpParticleGun;}
 
 
 private:
-  //G4ParticleGun* fpParticleGun;
-  G4GeneralParticleSource* fpParticleGun;
+  G4ParticleGun* fpParticleGun;
+  //G4GeneralParticleSource* fpParticleGun;
   
   //GeneratorMessenger* gunMessenger
   

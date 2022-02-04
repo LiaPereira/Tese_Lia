@@ -46,6 +46,10 @@
 #include "G4UserEventAction.hh"
 
 #include <map>
+#include <iostream>
+#include <fstream> 
+#include <vector>
+#include <string>
 
 class EventActionMessenger;
 
@@ -67,10 +71,19 @@ public:
   {
     return fTotalEnergyDeposit;
   };
+  //---------resi------------
+  std::vector<int> list_resi;
+  std::vector<std::vector<std::string>> list_elem;
+  std::vector<std::vector<int>> list_numelem;
+  //---------resi------------
 
   // ---------------- EU ---------------------------------------------
-  void AddEdepToResidue(G4int numMolec,G4int numResi,G4double edep)
+  void AddEdepToResidue(G4int numMolec,G4int numResi,G4double edep, std::vector<std::string> Elem, std::vector<int> numElem)
   {
+    list_resi.push_back(numResi);
+    list_elem.push_back(Elem);
+    list_numelem.push_back(numElem);
+    
     if(numMolec==1)
     {
       fEdepMolec1[numResi]+=edep;
